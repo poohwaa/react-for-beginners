@@ -6,7 +6,6 @@ function Movie({id, coverImg, title, summary, genres}) {
         <div key={id}>
             <img src={coverImg} alt={title} />
             <h2><Link to={`/movie/${id}`} >{title}</Link></h2>
-            // {`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`}
             <p>{summary}</p>
             <ul>
                 {genres.map((genre) => (
