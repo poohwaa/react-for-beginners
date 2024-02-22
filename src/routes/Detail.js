@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import DetailMovie from "../components/DetailMovie";
 
 function Detail() {
     const { id } = useParams();
@@ -28,19 +29,12 @@ function Detail() {
     return (
         <div>
             {loading ? <h2>Loading...</h2> : 
-            <div>
-                <div><Link to="/">BACK</Link></div>
-                <img src={movie.large_cover_image} alt={movie.title} />
-                <h2>{movie.title}</h2>
-                <p>{movie.description_full}</p>
-                <ul>
-                    {movie.genres.map((genre) => (
-                        <li key={genre}>
-                            {genre}
-                        </li>
-                    ))}
-                </ul>
-            </div>
+            <DetailMovie
+            converImg={movie.large_cover_image}
+            title={movie.title}
+            description={movie.description_full}
+            genres={movie.genres}
+            />
             }
             
         </div>
