@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import DetailMovie from "../components/DetailMovie";
+import styles from "./Detail.module.css"
 
 function Detail() {
     const { id } = useParams();
@@ -27,16 +28,28 @@ function Detail() {
     }, [movieId]);
 
     return (
-        <div>
-            {loading ? <h2>Loading...</h2> : 
-            <DetailMovie
-            converImg={movie.large_cover_image}
-            title={movie.title}
-            description={movie.description_full}
-            genres={movie.genres}
-            />
+        <div className={styles.container}>
+            {loading ? (
+                <div className={styles.loader}>
+                    <span>Loading...</span>
+                </div>
+            )
+            :
+            (
+                <div className={styles.movie}>
+                    <div><Link to="/" className={styles.previous}>&laquo; BACK</Link></div>
+                    <DetailMovie
+                    converImg={movie.large_cover_image}
+                    title={movie.title}
+                    description={movie.description_full}
+                    genres={movie.genres}
+                    year={movie.year}
+                    />
+                </div>
+
+            ) 
+
             }
-            
         </div>
     )
 }

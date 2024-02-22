@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 // import Todo from './Todo';
 // import CoinTracker from './CoinTracker';
 import Movies from './Movies';
-// import "./styles.css"
+import "./styles.css"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
